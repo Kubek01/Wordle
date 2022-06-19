@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: rgb(25, 25, 25)
+}
+
+.title {
+    /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.line {
+    position: relative;
+    display: grid;
+    margin: auto;
+}
+
+.line span {
+    outline: 1px solid white;
+}
+
+.game {
+    position: relative;
+    max-width: 32rem;
+    min-height: 31rem;
+    max-height: 35rem;
+    margin: auto;
+    margin-top: 2%;
+    flex-wrap: wrap;
+}
+
+.game>span {
+    float: left;
+    margin: 0.1rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+    width: 6rem;
+    height: 6rem;
+    color: white;
+    outline: 1px solid white;
+}
+
+#restart-btn {
+    position: absolute;
+    background-color: rgb(100, 175, 100);
+    color: white;
+    border-width: 0;
+    margin-left: 2rem;
+    margin-top: 50%;
+    font-size: 2rem;
+    border-radius: 2rem;
+    width: 15rem;
+    height: 5rem;
+}
+
+#restart-btn:hover {
+    filter: brightness(95%)
+}
+
+.invis {
+    display: none;
+}
+
+span>p {
+    position: relative;
+    margin-top: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+}
