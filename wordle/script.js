@@ -19,6 +19,9 @@ let maxBoxes = 30;
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let chosenWord = words[Math.floor(Math.random() * words.length)]
 
+console.log(chosenWord)
+let chosenWordLeft = [];
+chosenWordLeft.push(chosenWord);
 chosenWord = chosenWord.split('');
 alert('(Use your keyboard)')
 
@@ -81,17 +84,22 @@ function clickHandler(key) {
         word = word.substr(9, 12).toLowerCase();
         if (words.includes(word)) {
             word = word.split('');
-            for (let i = 0; i < Math.floor(Math.sqrt(maxBoxes)); i++) {
 
+            for (let i = 0; i < Math.floor(Math.sqrt(maxBoxes)); i++) {
                 if (chosenWord[i] == word[i]) {
                     boxes[column][i].style.backgroundColor = 'rgb(100, 175, 100)';
-                } else if (!chosenWord.includes(word[i])) {
+                    chosenWord[i] = null;
+                } else if (chosenWord[i] != word[i]) {
                     boxes[column][i].style.backgroundColor = 'rgb(100, 100, 100)';
                 }
             }
-            for (let j = 0; j < Math.sqrt(maxBoxes); j++) {
+            for (let j = 0; j < Math.floor(Math.sqrt(maxBoxes)); j++) {
                 if (chosenWord.includes(word[j]) && boxes[column][j].style.backgroundColor != 'rgb(100, 175, 100)') {
-                    boxes[column][j].style.backgroundColor = '#f7c200';
+                    boxes[column][j].style.backgroundColor = 'rgb(247, 194, 0)';
+                    console.log(j)
+                    console.log(word[j])
+                    console.log(boxes[column][j].style.backgroundColor)
+                    console.log(boxes[column][j].style.backgroundColor != 'rgb(100, 175, 100)')
                 }
             }
             let greenTaken = 0;
@@ -105,6 +113,12 @@ function clickHandler(key) {
             }
             column += 1;
             row = 0;
+            chosenWord = chosenWordLeft;
+            chosenWord = chosenWord.toString().split('');
+            if (column >= 6) {
+                alert("You didn't guess it :/");
+                guessedFunction();
+            }
             return;
         } else {
             alert(`Not in word list!`)
